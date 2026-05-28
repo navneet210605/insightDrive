@@ -70,7 +70,12 @@ const submitFeedback = async (req, res) => {
           $group: {
             _id: '$driver',
             avgRating: { $avg: '$sections.rating' },
-            feedbackCount: { $sum: 1 }
+            uniqueFeedbacks: { $addToSet: '$_id' }
+          }
+        },
+        {
+          $addFields: {
+            feedbackCount: { $size: '$uniqueFeedbacks' }
           }
         }
       ]);
@@ -226,7 +231,8 @@ const getAllFeedback = async (req, res) => {
 
 const getFeedbackUsers = async (_req, res) => {
   try {
-    const users = await User.find({ _id: { $in: await Feedback.distinct('submittedBy') } })
+    const userIds = await Feedback.distinct('submittedBy');
+    const users = await User.find({ _id: { $in: userIds.filter(Boolean) } })
       .select('name email')
       .sort({ email: 1 });
 

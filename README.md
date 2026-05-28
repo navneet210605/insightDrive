@@ -1,3 +1,28 @@
+# 🚀 Quick Deployment Guide
+
+To get the project running quickly:
+
+1. **Install All Dependencies**:
+   ```bash
+   npm run install:all
+   ```
+
+2. **Setup Environment**:
+   - Create `server/.env` based on `server/.env.example`
+   - Create `client/.env` based on `client/.env.example`
+
+3. **Seed Data (Optional)**:
+   ```bash
+   npm run seed
+   ```
+
+4. **Launch Platform**:
+   ```bash
+   npm run dev
+   ```
+
+---
+
 <div id="top" align="center">
   <h1>INSIGHTDRIVE</h1>
   <p><em>Real-time Ride Feedback Intelligence for Safer Fleet Operations</em></p>

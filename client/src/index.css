@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@utility shadow-soft {
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 5px 15px -3px rgba(0, 0, 0, 0.02);
+}
+
 :root {
   --bg-main: #f8fafc;
   --bg-soft: #f0f9ff;

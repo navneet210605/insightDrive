@@ -1,0 +1,14 @@
+{
+  "name": "insightdrive",
+  "version": "1.0.0",
+  "description": "InsightDrive Feedback Platform",
+  "scripts": {
+    "install:all": "npm install && cd client && npm install && cd ../server && npm install",
+    "dev": "concurrently \"cd server && npm run dev\" \"cd client && npm run dev\"",
+    "start": "concurrently \"cd server && npm start\" \"cd client && npm run dev\"",
+    "seed": "cd server && node seed.js"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
